@@ -19,7 +19,7 @@ def CountdownToDate(Date="0", Event="none"):
     if Event == "none":
         return "Set event name please."
 
-	# Lets show only what needed.
+# Lets show only what needed
     elif days == 0:
         if hours == 0:
             return "%s: %dmin %dsec" %(Event, minutes, seconds)
@@ -31,7 +31,7 @@ def CountdownToDate(Date="0", Event="none"):
         return "%s: %dday %dh %dmin %dsec" %(Event, days, hours, minutes, seconds)
 
 def NextE3():
-	# These times are in CEST + 1, change if needed.
+# Time list if you add others remember add also event name on other list (These times are in UTC + 3, change if needed)
     TimeList = [
     '2017-06-10 21:45:00', 
     '2017-06-11 23:45:00',
@@ -42,7 +42,7 @@ def NextE3():
     '2017-06-13 21:00:00'
     ];
 	
-	# Simple list for event names.
+# Event name list
     EventList  = [
     'EA Conference', 
     'MS Conference',
@@ -53,7 +53,7 @@ def NextE3():
     'Elite Dangerous E3 Live'
     ];
 	
-	# While for checking if there is next event.
+# Let's check if and when there is next event
     count = 0
     while (count < len(TimeList)):
         Date = datetime.strptime(TimeList[count], '%Y-%m-%d %H:%M:%S')
@@ -63,6 +63,7 @@ def NextE3():
             sys.exit()
         count = count + 1
 
+# And now just print if there is event
 if NextE3() != None:
     print(NextE3())
 else:
